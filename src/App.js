@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Navigation from "./component/Navigation";
+import Hero from "./component/Hero";
+import Project from "./component/Project";
+import CustomScrollButton from "./component/CustomScrollButton";
+import Footer from "./component/Footer";
+import Skills from "./component/Skills";
+import Contact from "./component/Contact";
 
 function App() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation />
+      <div id="hero">
+        <Hero />
+      </div>
+      <div id="skills">
+        <Skills />
+      </div>
+      <div id="project">
+        <Project />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
+
+      <CustomScrollButton direction="up" onClick={scrollToTop} />
+      <CustomScrollButton direction="down" onClick={scrollToBottom} />
+      <Footer />
     </div>
   );
 }

@@ -1,38 +1,414 @@
-.App {
-  text-align: center;
+html {
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Navbar {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 40px;
+  background-color: black;
+
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.logo {
+  height: 70px;
+  width: 70px;
+}
+
+.nav-items {
+  display: flex;
+
+  justify-content: center;
+}
+
+.nav-items ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-items li {
+  margin-left: 20px;
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  transition: all ease 0.1s;
+  position: relative;
+}
+
+.nav-items a:hover,
+.nav-items a.active {
+  color: #07d549;
+}
+
+.nav-items a:hover::after,
+.nav-items a.active::after {
+  content: "";
+  width: 50%;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  background: #07d549;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .Navbar {
+  
+    padding: 0px;
+  
+  }
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-items {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    right: -100%; /* Initially hide the menu off-screen */
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    transition: right 0.3s ease;
+    justify-content: flex-start;
+    align-items: flex-start;
+    z-index: 1000;
+ 
+  }
+
+  .nav-items.open {
+    right: 0; /* Slide the menu in from the right */
+    display: flex;
+  }
+
+  .nav-items li {
+    margin: 20px 0;
+  }
+
+  .nav-items ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 40px;
   }
 }
+/* Navbar end */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* hero section started */
+.hero {
+  width: 100%;
+  height: calc(100vh - 70px);
+  background-image: linear-gradient(to right, rgb(166, 225, 153) , #07d549);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.hero h1 {
+  animation: bounce 2s infinite;
+}
+.hero p {
+text-align: center;
+font-size: 20px;
+font-weight: 500;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hero .btns{
+  display: flex;
+  align-items: center; 
+  gap: 20px;
+}
+.btn{
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+.btn:hover {
+  background-color: white;
+  color: black;
+}
+.btn1{
+  background-color:white; 
+  color: black;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.Skills{
+  width: 100%;
+  height: 100vh;
+
+}
+.Skills h1{
+  text-align: center;
+}
+
+.skills-content{
+  padding-top:30px ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.skills-content .image{
+  width: 40%;
+  height: 100%;
+}
+.image img{
+  width: 100%;
+  height: 100%;
+}
+
+.skills-content .con{
+  width: 40%;
+  height: 100%;
+  text-align: justify;
+
+}
+
+.skills-description {
+  margin: 0;
+}
+
+.skills-title {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.skills-list {
+  list-style-type: square;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.skills-list li {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+
+.Project {
+  width: 100%;
+  height: auto;
+  background-color: white;
+  padding: 20px 0;
+  text-align: center;
+/* Add padding to the container */
+}
+.grid-container {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(3, calc(30% - 20px)); /* Subtract the gap from the width */
+  gap: 20px; /* Gap between grid items */
+
+}
+.btn2{
+  background-color: #07d549;
+  color: black;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+.btn2:hover {
+  background-color: white;
+  color: black;
+}
+
+.grid-item {
+  background-color: black;
+  padding: 20px;
+  height: 300px;
+  border-radius: 10px;
+  box-sizing: border-box; /* Include padding and border in the width */
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+.grid-item p{
+  color:white;
+}
+.grid-item:hover {
+  background-color: #ccc; /* Example: Change background color on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Example: Add box shadow on hover */
+}
+.grid-item img{
+  width: 100%;
+  height: 60%;
+  transition: transform 0.3s ease-in-out;
+}
+.grid-item img:hover {
+  transform: scale(1.1); /* Example: Enlarge the image on hover */
+}
+@media(max-width:767px){
+
+  .skills-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  .skills-content .image{
+    width: 90%;
+    height: 50%;
+  }
+ 
+  
+  .skills-content .con{
+    width: 90%;
+    height: 50%;
+  
+  
+  }
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+    background-color:  #07d549;
+  
+  
+  }
+  .grid-item {
+  width: 90%;
+  background-color: white;
+  }
+  
+}
+/* Contact */
+/* Contact.css */
+
+.contact {
+  font-family: Arial, sans-serif;
+  padding:20px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.contact h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.contact-sub {
+  display: flex;
+  justify-content:center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+
+}
+
+.form {
+  max-width: 550px;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+button {
+  background-color:#07d549;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #07d549;
+}
+
+.google-map {
+  max-width: 500px;
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* footer */
+.footer{
+  background-color:black;
+  text-align: center;
+  padding: 20px 0;
+
+
+}
+.footer h2,.footer p{
   color: white;
 }
+.social-icons ul{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap:10px;
 
-.App-link {
-  color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.social-icons ul a{
+  text-decoration: none;
 }
